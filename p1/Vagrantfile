@@ -9,9 +9,8 @@ CPU = 1
 GUI = false
 
 Vagrant.configure("2") do |config|
-	config.vm.box = "hashicorp/bionic64"
-	config.vm.box_url = "file://~/Desktop/bionic64"
-	config.vm.box_check_update = false
+	config.vm.box = "bento/ubuntu-24.04"
+	config.vm.box_version = "202508.03.0"
 
   # MASTER NODE
   config.vm.define SERVER_NODE do |node|
