@@ -1,4 +1,4 @@
-export INSTALL_K3S_EXEC="server --write-kubeconfig-mode=644 --bind-address=192.168.56.110  --advertise-address=192.168.56.110";
+export INSTALL_K3S_EXEC="server --write-kubeconfig-mode=644 --bind-address=192.168.56.110 --advertise-address=192.168.56.110 --node-ip=192.168.56.110";
       curl -sfL https://get.k3s.io |  sh -;
       if [[ ! -d "/vagrant/confs" ]]; then
           mkdir /vagrant/confs
