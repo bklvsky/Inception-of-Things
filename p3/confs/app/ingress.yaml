@@ -1,11 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: iot-app-ingress
+  name: wil-playground-ingress
   namespace: dev
   annotations:
     kubernetes.io/ingress.class: "traefik"
-    traefik.ingress.kubernetes.io/router.middlewares: "default-strip-prefix@kubernetescrd"
 spec:
   rules:
   - host: playground.com
@@ -15,6 +14,6 @@ spec:
         path: /
         backend:
           service:
-            name: iot-app-service
+            name: wil-playground-service
             port:
               number: 8888

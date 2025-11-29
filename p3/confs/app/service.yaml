@@ -1,15 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: iot-app-service
-  namespace: dev
+  name: wil-playground-service
   labels:
-    app: iot-app
+    app: wil-playground
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
   - port: 8888
     targetPort: 8888
     protocol: TCP
   selector:
-    app: iot-app
+    app: wil-playground
