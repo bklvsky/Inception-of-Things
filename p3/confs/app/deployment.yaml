@@ -1,44 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: iot-app
-  namespace: dev
+  name: wil-playground
   labels:
-    app: iot-app
+    app: wil-playground
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: iot-app
+      app: wil-playground
   template:
     metadata:
       labels:
-        app: iot-app
+        app: wil-playground
     spec:
       containers:
-      - name: iot-app
-        image: wil42/playground:v1  # Will be updated by ArgoCD
+      - name: wil-playground
+        image: wil42/playground:v2  # Will be updated by ArgoCD
         ports:
         - containerPort: 8888
-        env:
-        - name: APP_VERSION
-          value: "v1"
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 8888
-          initialDelaySeconds: 10
-          periodSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 8888
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "50m"
-          limits:
-            memory: "128Mi"
-            cpu: "100m"
